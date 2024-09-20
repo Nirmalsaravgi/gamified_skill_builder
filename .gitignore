@@ -1,0 +1,14 @@
+myenv/
+gamify/.env
+gamify/__pycache__
+coreapp/__pycache__
+missions/__pycache__
+players/__pycache__
+rewards/__pycache__
+skills/__pycache__
+
+coreapp/migrations/__pycache__
+missions/migrations/__pycache__
+players/migrations/__pycache__
+rewards/migrations/__pycache__
+skills/migrations/__pycache__
