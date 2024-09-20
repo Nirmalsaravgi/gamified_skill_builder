@@ -1,4 +1,5 @@
 myenv/
+media/
 gamify/.env
 gamify/__pycache__
 coreapp/__pycache__
