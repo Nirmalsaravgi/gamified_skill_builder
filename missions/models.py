@@ -18,12 +18,23 @@ class Mission(base):
         ('C', 'Completed'),
     )
     status = models.CharField(max_length=256, choices=mission_status)
-    completed = models.BooleanField(default=False, null=True, blank=True)
+    completed = models.BooleanField(default=False)
     time_limit = models.DurationField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title or "Unnamed"
     
-    # class Meta:
-    #     verbose_name_plural = "Missions"
+    def save(self, *args, **kwargs):
+        is_completed = self.completed and self.status == 'C'
+        super().save(*args, **kwargs)
+
+        if is_completed:
+            skill_tree = self.related_skill.skill_tree
+
+            skill_tree.add_xp(50)
+
+            mission_count = Mission.objects.filter(related_skill = self.related_skill, completed = True).count()
+
+            if mission_count % 5 == 0:
+                skill_tree.add_xp(250)

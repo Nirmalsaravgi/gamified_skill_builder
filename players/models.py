@@ -9,8 +9,8 @@ class PlayerProfile(base):
     life_goals = models.TextField(null = True, blank = True)
     # avatar = models.FileField(upload_to='avatars/', null=True, blank=True) 
     # badges = 
-    level = models.IntegerField(default=0)
-    Xp_points = models.IntegerField(null=True, blank=True)
+    # level = models.IntegerField(default=0)
+    # Xp_points = models.IntegerField(null=True, blank=True)
     # achivements = 
     player_streak = models.IntegerField(default=0)
     # total_time = 
